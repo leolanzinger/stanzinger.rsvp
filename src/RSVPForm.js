@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import bg from './assets/bg_portrait.svg'; // Adjust the path as needed
 
 function RSVPForm() {
   const [guestCount, setGuestCount] = useState(1);
   const [guestNames, setGuestNames] = useState(['']);
+  const [submitText, setSubmitText] = useState(['SUBMIT']);
   const navigate = useNavigate(); // Hook for navigation
 
   const handleIncrement = () => {
     setGuestCount(prevCount => {
-      const newCount = prevCount + 1;
-      setGuestNames(Array(newCount).fill(''));
-      return newCount;
+      if (prevCount < 4) {
+        const newCount = prevCount + 1;
+        setGuestNames(Array(newCount).fill(''));
+        return newCount;
+      }
+      return prevCount;
     });
   };
 
@@ -33,6 +38,8 @@ function RSVPForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setSubmitText("SUBMITTING...");
 
     const url = 'https://sheetdb.io/api/v1/cztz4ochk7edw'; // Replace with your actual SheetDB API URL
     const apiKey = 'mjz7yuypb8gu44juhqa1hzkg2ui9zvl761g8igg1'; // Replace with your actual API key from SheetDB
@@ -57,35 +64,38 @@ function RSVPForm() {
       });
 
       if (response.ok) {
-        alert('RSVP Submitted!');
+        // alert('RSVP Submitted!');
         navigate('/confirmation'); // Redirect to confirmation page
       } else {
         const error = await response.json();
         alert('There was an error submitting your RSVP.');
         console.error('Error:', error);
+        submitText = "SUBMIT";
       }
     } catch (error) {
       alert('Error submitting RSVP. Please try again.');
       console.error('Fetch error:', error);
+      submitText = "SUBMIT";
     }
   };
 
   return (
     <div style={styles.container}>
+      <img src={bg} alt="Background" style={styles.bg} />
       <h2>HOW MANY ARE YOU?</h2>
       <div style={styles.guestSelector}>
         <button onClick={handleDecrement} style={styles.stepButton}>-</button>
         <span style={styles.count}>{guestCount}</span>
         <button onClick={handleIncrement} style={styles.stepButton}>+</button>
       </div>
-      <h2>TELL US YOUR NAMES:</h2>
+      <h2>TELL US YOUR NAMES</h2>
       <form onSubmit={handleSubmit} style={styles.form}>
         {guestNames.map((_, index) => (
           <div key={index} style={styles.inputGroup}>
             <label>
-              Guest {index + 1}:
               <input
                 type="text"
+                placeholder={`Guest ` + (index + 1)}
                 value={guestNames[index]}
                 onChange={(e) => handleGuestNameChange(index, e.target.value)}
                 required
@@ -94,8 +104,7 @@ function RSVPForm() {
             </label>
           </div>
         ))}
-        <h2>SOME INFO ABOUT THE VENUE</h2>
-        <button className="RSVP" type="submit" style={styles.submitButton}>SUBMIT</button>
+        <button className="RSVP" type="submit" style={styles.submitButton}>{submitText}</button>
       </form>
     </div>
   );
@@ -108,7 +117,8 @@ const styles = {
       justifyContent: 'flex-start',
       alignItems: 'center',
       height: '100vh', // Full viewport height
-      paddingTop: '160px'
+      paddingTop: '260px',
+      zIndex: '99'
     },
     guestSelector: {
       display: 'flex',
@@ -142,7 +152,6 @@ const styles = {
     input: {
       padding: '8px',
       fontSize: '16px',
-      marginTop: '16px',
       width: '100%',
       boxSizing: 'border-box',
       backgroundColor: 'transparent',
@@ -150,8 +159,17 @@ const styles = {
       border: "1px solid #fff"
     },
     submitButton: {
-        marginTop: '80px',
+        marginTop: '60px',
         width: 'auto'
+    },
+    bg: {
+      position: 'absolute',
+      marginLeft: '-200px',
+      left: '50%',
+      width: '400px',
+      top: '80px',
+      opacity: '30%',
+      zIndex: '-1'
     }
   };
 
