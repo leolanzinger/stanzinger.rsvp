@@ -25,12 +25,6 @@ function RSVPForm() {
     });
   };
 
-  const handleGuestCountChange = (e) => {
-    const count = parseInt(e.target.value);
-    setGuestCount(count);
-    setGuestNames(Array(count).fill(''));
-  };
-
   const handleGuestNameChange = (index, value) => {
     const newGuestNames = [...guestNames];
     newGuestNames[index] = value;
@@ -63,7 +57,6 @@ function RSVPForm() {
       });
 
       if (response.ok) {
-        const result = await response.json();
         alert('RSVP Submitted!');
         navigate('/confirmation'); // Redirect to confirmation page
       } else {
