@@ -70,12 +70,12 @@ function RSVPForm() {
         const error = await response.json();
         alert('There was an error submitting your RSVP.');
         console.error('Error:', error);
-        submitText = "SUBMIT";
+        setSubmitText("SUBMIT");
       }
     } catch (error) {
       alert('Error submitting RSVP. Please try again.');
       console.error('Fetch error:', error);
-      submitText = "SUBMIT";
+      setSubmitText("SUBMIT");
     }
   };
 
