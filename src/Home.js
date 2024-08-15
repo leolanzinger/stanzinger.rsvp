@@ -17,7 +17,7 @@ function Home() {
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <img src={bg} alt="Background" style={hover ? styles.bgHover : styles.bg} />
+      <img src={bg} alt="Background" className="background" style={hover ? styles.bgHover : styles.bg} />
       <img src={logo} alt="Logo" style={styles.logo} />
       <h2>14.09.2024</h2>
       <button
@@ -63,22 +63,10 @@ const styles = {
       bottom: '16px'
     },
     bg: {
-      position: 'absolute',
-      marginLeft: '0px',
-      left: '0%',
-      top: '0%',
-      width: '100%',
-      opacity: '20%',
-      zIndex: '-1'
+      opacity: '20%'
     },
     bgHover: {
-      position: 'absolute',
-      marginLeft: '0px',
-      left: '0%',
-      top: '0%',
-      width: '100%',
-      opacity: '10%',
-      zIndex: '-1'
+      opacity: '10%'
     },
     submitButton: {
         marginTop: '60px',

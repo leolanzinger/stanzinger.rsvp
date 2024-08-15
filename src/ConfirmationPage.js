@@ -7,7 +7,7 @@ function ConfirmationPage() {
       <h1>Thank you</h1>
       <h1>x</h1>
       <h1>see you there!</h1>
-      <img src={bg} alt="Background" style={styles.bg} />
+      <img src={bg} alt="Background" className="background" />
       <div style={styles.topLeft}>AME x LEO</div>
       <div style={styles.topRight}>18:00 - 24:00</div>
       <div style={styles.bottomLeft}>LEIPZIGER STR. 60/61</div>
