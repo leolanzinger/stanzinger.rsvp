@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import bg from './assets/bg_landscape.svg'; // Adjust the path as needed
 
 function RSVPForm() {
   const [guestCount, setGuestCount] = useState(1);
@@ -81,7 +80,6 @@ function RSVPForm() {
 
   return (
     <div style={styles.container}>
-      {/* <img src={bg} alt="Background" style={styles.bg} /> */}
       <h2>HOW MANY ARE YOU?</h2>
       <div style={styles.guestSelector}>
         <button onClick={handleDecrement} style={styles.stepButton}>-</button>
