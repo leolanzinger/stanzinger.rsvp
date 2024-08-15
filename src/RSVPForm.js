@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import bg from './assets/bg_portrait.svg'; // Adjust the path as needed
+import bg from './assets/bg_landscape.svg'; // Adjust the path as needed
 
 function RSVPForm() {
   const [guestCount, setGuestCount] = useState(1);
@@ -81,7 +81,7 @@ function RSVPForm() {
 
   return (
     <div style={styles.container}>
-      <img src={bg} alt="Background" style={styles.bg} />
+      {/* <img src={bg} alt="Background" style={styles.bg} /> */}
       <h2>HOW MANY ARE YOU?</h2>
       <div style={styles.guestSelector}>
         <button onClick={handleDecrement} style={styles.stepButton}>-</button>
@@ -104,8 +104,12 @@ function RSVPForm() {
             </label>
           </div>
         ))}
-        <button className="RSVP" type="submit" style={styles.submitButton}>{submitText}</button>
+        <button className="RSVP submitButton" type="submit">{submitText}</button>  
       </form>
+      <div style={styles.topLeft}>AME x LEO</div>
+      <div style={styles.topRight}>18:00 - 24:00</div>
+      <div style={styles.bottomLeft}>LEIPZIGER STR. 60/61</div>
+      <div style={styles.bottomRight}>DRESS CODE: BLACK</div>
     </div>
   );
 }
@@ -117,7 +121,7 @@ const styles = {
       justifyContent: 'flex-start',
       alignItems: 'center',
       height: '100vh', // Full viewport height
-      paddingTop: '260px',
+      paddingTop: '380px',
       zIndex: '99'
     },
     guestSelector: {
@@ -154,22 +158,47 @@ const styles = {
       fontSize: '16px',
       width: '100%',
       boxSizing: 'border-box',
-      backgroundColor: 'transparent',
+      backgroundColor: '#000',
       color: '#fff',
       border: "1px solid #fff"
     },
-    submitButton: {
-        marginTop: '60px',
-        width: 'auto'
-    },
+    // bg: {
+    //   position: 'absolute',
+    //   marginLeft: '-200px',
+    //   left: '50%',
+    //   width: '400px',
+    //   top: '80px',
+    //   opacity: '30%',
+    //   zIndex: '-1'
+    // },
     bg: {
       position: 'absolute',
-      marginLeft: '-200px',
-      left: '50%',
-      width: '400px',
-      top: '80px',
+      // marginLeft: '-400px',
+      left: '0%',
+      width: '100%',
+      top: '0%',
       opacity: '30%',
-      zIndex: '-1'
+      zIndex: '-1',
+    },
+    topLeft: {
+      position: 'absolute',
+      left: '16px',
+      top: '16px'
+    },
+    topRight: {
+      position: 'absolute',
+      right: '16px',
+      top: '16px'
+    },
+    bottomLeft: {
+      position: 'absolute',
+      left: '16px',
+      bottom: '16px'
+    },
+    bottomRight: {
+      position: 'absolute',
+      right: '16px',
+      bottom: '16px'
     }
   };
 

@@ -29,14 +29,16 @@ code {
     monospace;
 }
 
+button {
+  background-color: #000;
+}
+
 button.RSVP {
   border: 2px solid #fff;
-  background-color: transparent;
   padding: 16px 32px;
   border-radius: 80px;
   font-size: 1.2em;
   color: #fff;
-  margin-top: 24px;
   transition: 200ms linear;
 }
 
@@ -45,6 +47,21 @@ button:hover {
   background-color: #fff;
   color:#000;
   transition: 200ms linear;
+}
+
+.buttonContainer {
+  position: relative;
+  display: flex;
+  width:100%;
+  height: fit-content;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonBorder {
+  height: 108%;
+  border-radius: 80px;
+  border: 2px solid #fff;
 }
 
 h1 {
@@ -63,4 +80,16 @@ h2 {
 
 label {
   font-size: 24px;
+}
+
+.submitButton {
+  margin-top: 60px;
+  width: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .submitButton {
+    margin-top: 16px;
+    width: auto;
+  }
 }

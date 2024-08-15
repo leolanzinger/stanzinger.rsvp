@@ -8,14 +8,14 @@ function Home() {
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
-        <img src={bg} alt="Background" style={styles.bg} />
-        <img src={logo} alt="Logo" style={styles.logo} />
+      <img src={bg} alt="Background" style={styles.bg} />
+      <img src={logo} alt="Logo" style={styles.logo} />
       <h2>14.09.2024</h2>
       <button className="RSVP" onClick={() => navigate('/rsvp')}>RSVP</button>
       <div style={styles.topLeft}>AME x LEO</div>
       <div style={styles.topRight}>18:00 - 24:00</div>
-      <div style={styles.bottomLeft}>NELLA BELJAN GALLERY</div>
-      <div style={styles.bottomRight}>LEIPZIGER STR. 60/61</div>
+      <div style={styles.bottomLeft}>LEIPZIGER STR. 60/61</div>
+      <div style={styles.bottomRight}>DRESS CODE: BLACK</div>
     </div>
   );
 }
@@ -52,10 +52,14 @@ const styles = {
       marginLeft: '-400px',
       left: '50%',
       width: '800px',
-      top: '15%',
+      top: '12%',
       opacity: '30%',
       zIndex: '-1'
-    }
+    },
+    submitButton: {
+        marginTop: '60px',
+        width: 'auto'
+    },
 }
 
 export default Home;
