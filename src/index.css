@@ -93,3 +93,7 @@ label {
     width: auto;
   }
 }
+
+img {
+  transition: all s ease-out;
+}

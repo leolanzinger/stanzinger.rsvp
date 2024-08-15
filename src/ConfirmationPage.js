@@ -1,4 +1,5 @@
 import React from 'react';
+import bg from './assets/bg_landscape.svg'; // Adjust the path as needed
 
 function ConfirmationPage() {
   return (
@@ -6,7 +7,7 @@ function ConfirmationPage() {
       <h1>Thank you</h1>
       <h1>x</h1>
       <h1>see you there!</h1>
-
+      <img src={bg} alt="Background" style={styles.bg} />
       <div style={styles.topLeft}>AME x LEO</div>
       <div style={styles.topRight}>18:00 - 24:00</div>
       <div style={styles.bottomLeft}>LEIPZIGER STR. 60/61</div>
@@ -38,11 +39,11 @@ const styles = {
   },
   bg: {
     position: 'absolute',
-    marginLeft: '-400px',
-    left: '50%',
-    width: '800px',
-    top: '15%',
-    opacity: '30%',
+    marginLeft: '0px',
+    left: '0%',
+    top: '0%',
+    width: '100%',
+    opacity: '20%',
     zIndex: '-1'
   },
   submitButton: {
