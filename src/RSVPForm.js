@@ -116,16 +116,15 @@ const styles = {
     container: {
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'flex-start',
+      justifyContent: 'center',
       alignItems: 'center',
       height: '100vh', // Full viewport height
-      paddingTop: '380px',
       zIndex: '99'
     },
     guestSelector: {
       display: 'flex',
       alignItems: 'center',
-      marginBottom: '40px',
+      marginBottom: '2%',
     },
     stepButton: {
       backgroundColor: 'transparent',
