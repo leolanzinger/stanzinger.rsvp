@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from './assets/stanzinger.svg'; // Adjust the path as needed
-import bg from './assets/bg_landscape.svg'; // Adjust the path as needed
+import stan from './assets/stan.svg'; // Adjust the path as needed
+import zinger from './assets/zinger.svg'; // Adjust the path as needed
 
 
 function Home() {
@@ -17,8 +17,14 @@ function Home() {
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <img src={bg} alt="Background" className="background" style={hover ? styles.bgHover : styles.bg} />
-      <img src={logo} alt="Logo" style={styles.logo} />
+      <div style={styles.logoContainer}>
+        <div style={styles.logoStan}>
+          <img src={stan} alt="Stan logo" style={styles.stan} />
+        </div>
+        <div style={styles.logoZinger}>
+          <img src={zinger} alt="Zinger logo" style={styles.zinger} />
+        </div>
+      </div>
       <h2>14.09.2024</h2>
       <button
         className="RSVP"
@@ -41,6 +47,30 @@ const styles = {
       maxWidth: '90%',
       height: 'auto',
       marginBottom: '20px', // Space between logo and title
+    },
+    logoContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      width: '100vw',
+      maxWidth: '1280px'
+    },
+    logoStan: {
+      paddingLeft: '10%',
+      textAlign: 'left'
+    },
+    logoZinger: {
+      paddingRight: '10%',
+      textAlign: 'right'
+    },
+    stan: {
+      width: 'auto', // Adjust the size as needed,
+      height: '80px',
+      maxHeight: '6vw',
+    },
+    zinger: {
+      width: 'auto', // Adjust the size as needed,
+      height: '80px',
+      maxHeight: '6vw',
     },
     topLeft: {
       position: 'absolute',
